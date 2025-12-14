@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders Clone</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="flex flex-col items-center justify-center h-screen w-screen select-none">
+    <!-- UI Overlay -->
+    <div class="absolute top-4 left-4 text-white text-sm z-10">
+        <p class="mb-2">SCORE: <span id="scoreEl">0</span></p>
+        <div id="livesEl" class="text-red-500 text-lg tracking-widest">♥ ♥ ♥ ♥ ♥ </div>
+    </div>
+    <div class="absolute top-4 right-4 text-white text-sm z-10">
+        <p>HIGH SCORE: <span id="highScoreEl">0</span></p>
+    </div>
+    <div class="absolute top-4 left-1/2 transform -translate-x-1/2 text-white text-sm z-10 text-center">
+        <h2 class="text-green-500 text-xs mb-1 pixel-text opacity-70">SPACE INVADERS</h2>
+        <p>LEVEL: <span id="levelEl">1</span></p>
+    </div>
+    <div class="absolute bottom-4 right-4 text-white/50 text-xs z-10">
+        by mikeblackhat
+    </div>
+    <!-- Canvas -->
+    <canvas id="gameCanvas" width="800" height="600"
+        class="bg-black border-4 border-slate-800 shadow-lg shadow-green-900/20"></canvas>
+    <!-- Start/Game Over Screen -->
+    <div id="startScreen" class="absolute flex flex-col items-center justify-center bg-black/80 inset-0 z-20">
+        <h1 class="text-4xl text-green-500 mb-2 pixel-text text-center">SPACE INVADERS</h1>
+        <p class="text-white/70 text-xs mb-6">by mikeblackhat</p>
+        <p class="text-white mb-8 text-xs text-center leading-6">
+            ARROWS or WASD to Move<br>SPACE or W to Shoot<br><br>
+            Destroy the aliens before they land!<br>
+            Watch out for the UFO!
+        </p>
+        <button id="startBtn"
+            class="px-6 py-3 bg-green-600 hover:bg-green-500 text-white text-sm uppercase border-2 border-white cursor-pointer transition">
+            Start Game
+        </button>
+    </div>
+    <div id="gameOverScreen" class="hidden absolute flex flex-col items-center justify-center bg-black/90 inset-0 z-20">
+        <h1 class="text-4xl text-red-500 mb-4 pixel-text">GAME OVER</h1>
+        <p class="text-white mb-4">FINAL SCORE: <span id="finalScoreEl">0</span></p>
+        <button id="restartBtn"
+            class="px-6 py-3 bg-green-600 hover:bg-green-500 text-white text-sm uppercase border-2 border-white cursor-pointer transition">
+            Try Again
+        </button>
+    </div>
+    <script src="js/constants.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>
